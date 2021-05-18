@@ -25,5 +25,5 @@ services:
     build: ./cons
     volumes:
       - /app/node_modules
-      - ./consumer:/app       
+      - ./cons:/app       
     restart: on-failure
