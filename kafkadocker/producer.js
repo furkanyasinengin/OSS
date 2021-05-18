@@ -13,9 +13,9 @@ async function createProducer() {
     });
 
     const producer = kafka.producer();
-    console.log("producer.js Producer'a bağlanılıyor..");
+    console.log("Connecting..");
     await producer.connect();
-    console.log("producer.js Bağlantı başarılı.");
+    console.log("Connected");
 
     let messages = log_data.map(item => {
         return {
@@ -28,12 +28,11 @@ async function createProducer() {
         topic: "Logs",
         messages: messages
       });
-    console.log("producer.js Gonderim işlemi başarılıdır", JSON.stringify(message_result));
+    console.log("Send completed", JSON.stringify(message_result));
     await producer.disconnect();
   } catch (error) {
-    console.log("producer.js Bir Hata Oluştu", error);
-   }// finally {
-  //   process.exit(0);
-  // }
-  
+    console.log("Error", error);
+   } finally {
+   process.exit(0);
+  } 
 }

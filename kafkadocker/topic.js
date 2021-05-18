@@ -10,10 +10,10 @@ async function createTopic() {
     });
 
     const admin = kafka.admin();
-    console.log("topic.js Connecting...");
+    console.log("Connecting...");
     
     await admin.connect();
-    console.log("topic.js Connected, topic creating..");
+    console.log("Connected, topic creating..");
     
     await admin.createTopics({
       topics: [
@@ -23,14 +23,14 @@ async function createTopic() {
         }
       ]
     });
-    console.log("topic.js Topic created...");
+    console.log("Topic created...");
     await admin.disconnect();
   } 
   
   catch (error) {
-    console.log("topic.js Error",error);
+    console.log("Error",error);
   } 
-  // finally {
-  //   process.exit(0);
-  // }
+   finally {
+     process.exit(0);
+  }
 }

@@ -22,7 +22,7 @@ services:
       - ./kafkadocker:/app
     restart: on-failure
   consumer:
-    build: ./consumer
+    build: ./cons
     volumes:
       - /app/node_modules
       - ./consumer:/app       
